@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 旋转数组 把一个数组最开始的若干个元素搬到数组的末尾 称为数组的旋转 -->
+    <!-- Math.floor 返回小于或等于一个给定数字的最大整数 -->
+    <!-- 利用二分法 -->
+    <script>
+      function minArray(numbers) {
+        let low = 0;
+        let high = numbers.length + 1;
+        while (low < high) {
+          const pivot = low + Math.floor((high - low) / 2);
+          if (numbers[pivot] < numbers[high]) {
+            high = pivot;
+          } else if (numbers[pivot] > numbers[high]) {
+            low = pivot + 1;
+          } else {
+            high -= 1;
+          }
+        }
+        return numbers[low];
+      }
+    </script>
+  </body>
+</html>

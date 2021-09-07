@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var findRepeatNumber = function (nums) {
+        let map = new Map();
+        for (let i of nums) {
+          if (map.has(i)) {
+            //map.has(key) 用来检测是否存在指定元素的键值
+            return i;
+          } else {
+            map.set(i, 1);
+            //map.set(key,value)  为map对象添加或更新了一个指定了键(key)和值(value)的新键值对
+          }
+        }
+        return null;
+      };
+    </script>
+  </body>
+</html>

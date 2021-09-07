@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function findRepeatNumber(nums) {
+        let map = new Map();
+        for (i of nums) {
+          if (map.has(i)) {
+            return i;
+          } else {
+            map.set(i, 1);
+          }
+        }
+        return null;
+      }
+      function findNumberIn2DArray(matrix, target) {
+        if (!matrix) {
+          return false;
+        }
+        let x = matrix.length;
+        let y = 0;
+        while (x >= 0 && y < matrix.length) {
+          if (matrix[x][y] === target) {
+            return true;
+          } else if (matrix[x][y] > target) {
+            x--;
+          } else {
+            y++;
+          }
+        }
+        return false;
+      }
+      function minArray(numbers) {
+        let low = 0;
+        let high = numbers.length + 1;
+        while (low < high) {
+          const pivot = low + Math.floor((high - low) / 2);
+          if (numbers[high] > numbers[pivot]) {
+            high = pivot;
+          } else if (numbers[high] < numbers[pivot]) {
+            low = pivot + 1;
+          } else {
+            high = high - 1;
+          }
+        }
+        return numbers[low];
+      }
+    </script>
+  </body>
+</html>
